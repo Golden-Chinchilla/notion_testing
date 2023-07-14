@@ -1,70 +1,45 @@
-// TradingViewWidget.jsx
-import React, { useEffect, useRef, memo } from 'react';
-
-function TradingViewWidget() {
-  const contariner = useRef();
-
-  useEffect(
-    () => {
-      const script = document.createElement("script");
-      script.src = "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js";
-      script.type = "text/javascript";
-      script.async = true;
-      script.innerHTML = `
-        {
-          "symbols": [
-            [
-              "BINANCE:BTCUSDT|1D"
-            ],
-            [
-              "BINANCE:ETHUSDT|1D"
-            ]
-          ],
-          "chartOnly": false,
-          "width": 1000,
-          "height": 500,
-          "locale": "en",
-          "colorTheme": "dark",
-          "autosize": false,
-          "showVolume": false,
-          "showMA": false,
-          "hideDateRanges": false,
-          "hideMarketStatus": false,
-          "hideSymbolLogo": false,
-          "scalePosition": "right",
-          "scaleMode": "Normal",
-          "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-          "fontSize": "10",
-          "noTimeScale": false,
-          "valuesTracking": "1",
-          "changeMode": "price-and-percent",
-          "chartType": "candlesticks",
-          "maLineColor": "#2962FF",
-          "maLineWidth": 1,
-          "maLength": 9,
-          "lineType": 0,
-          "dateRanges": [
-            "1d|1",
-            "1m|30"
-          ],
-          "upColor": "#22ab94",
-          "downColor": "#f7525f",
-          "borderUpColor": "#22ab94",
-          "borderDownColor": "#f7525f",
-          "wickUpColor": "#22ab94",
-          "wickDownColor": "#f7525f"
-        }`;
-      contariner.current.appendChild(script);
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    {
+      "description": "",
+      "proName": "BINANCE:BTCUSDT"
     },
-    []
-  );
-
-  return (
-    <div className="tradingview-widget-container" ref={contariner}>
-      <div className="tradingview-widget-container__widget"></div>
-      <div className="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span className="blue-text">Track all markets on TradingView</span></a></div>
-    </div>
-  );
+    {
+      "description": "",
+      "proName": "BINANCE:ETHUSD"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:XRPUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:MATICUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:SOLUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:AVAXUSDT"
+    },
+    {
+      "description": "This is Link",
+      "proName": "BINANCE:LINKUSDT"
+    }
+  ],
+  "showSymbolLogo": true,
+  "colorTheme": "dark",
+  "isTransparent": true,
+  "displayMode": "adaptive",
+  "locale": "en"
 }
-
-export default memo(TradingViewWidget);
+  </script>
+</div>
+<!-- TradingView Widget END -->
